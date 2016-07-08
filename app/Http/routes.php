@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 
 Route::auth();
+Route::get('/login', ['as'=>'user.login', 'uses' => 'Auth\AuthController@showLoginForm']);
 
 Route::get('/home', 'HomeController@index');
+
 
 Route::group(['prefix'=>'admin'], function(){
 	Route::get('/login', ['as'=>'admin.login', 'uses' => 'Authadmin\AuthController@showLoginForm']);

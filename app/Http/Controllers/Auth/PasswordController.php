@@ -29,4 +29,9 @@ class PasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    protected function getSendResetLinkEmailSuccessResponse($response)
+    {
+        return redirect()->route('user.login')->with('status', trans($response));
+    }
 }
